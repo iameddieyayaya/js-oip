@@ -68,6 +68,8 @@ class FLOTransaction extends Transaction {
    * @return {Integer} Returns the length of the Transaction
    */
   __byteLength (__allowWitness, options) {
+    console.log(Transaction.call(this, __allowWitness))
+
     let byteLength = Transaction.prototype.__byteLength.call(this, __allowWitness)
 
     if ((options && options.excludeFloData) || this.version < 2) { return byteLength }
